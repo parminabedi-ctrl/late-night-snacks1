@@ -7,6 +7,9 @@ define e = Character("Eileen")
 define b = Character("Game") # narrator character
 $playerNName= "" #PLAYER PREFERED NAME
 
+image bg: 
+    "images/background_lns.png"
+    zoom 1.7
 # The game starts here.
 
 label start:
@@ -15,25 +18,31 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg 
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
-
-    show eileen happy
 
     # These display lines of dialogue.
     $playerNName = renpy.input(default= '', prompt="What do you like to be called?")
     define y = Character("[playerNName]")
 
     b "You want to be called [playerNName]."
-    y "My name is [playerNName]."
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    b "It's night time,"
+    b "Almost 12 A.M."
+    y "I can't fall asleep."
+    b "Maybe because you had coffee this morning?"
+    y "That's not gonna help me."
+    b "Well am I wrong?"
+    menu:
+        "Shut up.":
+            jump coffee
+        "Not really...":
+            jump coffee
+label coffee: 
+    b "Hahahaha, too bad"
+    y "Well what do you suggest I do???"
 
     # This ends the game.
-
     return
