@@ -8,7 +8,7 @@ define b = Character("Game") # narrator character
 $playerNName= "" #PLAYER PREFERED NAME
 
 init python:
-    upleft = Position(xpos=0.85, ypos=0.5)
+    upleft = Position(xpos=0.88, ypos=0.4)
 
 image bg: 
     "images/background_lns.png"
@@ -26,13 +26,16 @@ image lpop:
 #Emotion images:
 image angry: 
     "images/angry_lns.png"
-    
+    zoom 0.7
 image sad:
     "images/sad_lns.png"
+    zoom 0.7
 image shock:
     "images/shock_lns.png"
+    zoom 0.7
 image happy:
     "images/happy_lns.png"
+    zoom 0.7
 # The game starts here.
 
 label start:
@@ -51,12 +54,13 @@ label start:
     $playerNName = renpy.input(default= '', prompt="What do you like to be called?")
     define y = Character("[playerNName]")
 
-    show angry at upleft
     b "You want to be called [playerNName]."
     b "It's night time,"
     b "Almost 12 A.M."
+    show sad at upleft 
     y "I can't fall asleep."
     b "Maybe because you had coffee this morning?"
+    hide sad
     y "That's not gonna help me."
     b "Well am I wrong?"
     menu:
@@ -67,6 +71,11 @@ label start:
 label coffee: 
     b "Hahahaha, too bad"
     y "Well what do you suggest I do???"
+    b "I don't know, why are you asking me?"
+    show angry at upleft
+    y "BECAUSE YOU'RE THE ONE LAUGHING AT ME!!!"
+    y "WHO EVEN ARE YOU?! WHAT ARE YOU DOING IN MY ROOM?!"
+
 
     # This ends the game.
     return
