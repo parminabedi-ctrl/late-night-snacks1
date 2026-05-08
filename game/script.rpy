@@ -1,15 +1,13 @@
-﻿# The script of the game goes in this file.
+﻿# The script of the game "Late Night Snacks" goes in this file.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define e = Character("Eileen")
 define b = Character("Game") # narrator character
 $playerNName= "" #PLAYER PREFERED NAME
 
+#defining a position
 init python:
     upleft = Position(xpos=0.88, ypos=0.4)
 
+#background image
 image bg: 
     "images/background_lns.png"
     zoom 1.7
@@ -40,10 +38,6 @@ image happy:
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg 
 
     # This shows a character sprite. A placeholder is used, but you can
@@ -51,6 +45,7 @@ label start:
     # directory.
 
     # These display lines of dialogue.
+    #Name of player declared
     $playerNName = renpy.input(default= '', prompt="What do you like to be called?")
     define y = Character("[playerNName]")
 
@@ -190,12 +185,16 @@ label potatoc:
     hide pchips
     y "I already ate all of it..."
     b "HOW FAT DO YOU HAVE TO BE TO EAT ALL THAT???"
+    show happy at upleft
     y "Hahaha"
     b "This is NOT funny"
     y "Then why am I laughing?"
+    hide happy
     b "GET OUT OF MY GAME ALREADY I'M SICK OF YOU YOU CAN'T EVEN GIVE ME SOME CHIPS"
     y "Hehehehe"
+    show shock at upleft
     y "I'm gonna sleep now be quiet."
+    hide shock
     b "YES JUST SLEEP I DON'T WANNA TALK TO YOU ANYMORE!!!"
     return
 label coka:
@@ -207,34 +206,153 @@ label coka:
         pos (0.4, 0.25)
     b "The coke?"
     b "Good choice I like that too"
+    show happy at upleft
     b "It's so yummy"
     y "We finally agree on something"
     b "See I'm not THAT annoying"
+    hide happy
     y "You kinda are though"
     b "That's NOT nice"
     y "Hehehe I successfully annoyed you"
     b "No it doesn't count"
     y "Anyways let me drink some"
     y "Yummy"
+    show happy at upleft
     y "It's so good I'm about to cry"
     b "Damn that's actually crazy"
     b "How good is it?"
+    hide happy
     y "It tastes like it came from heaven"
     y "Yum yum yum yum yum"
     b "Can I have some?"
+    show shock at upleft
     y "NO!!!"
     b "BUT YOU STILL HAVE SOME LEFT!"
     hide coke
+    hide shock
     y "Too bad I drank it all..."
     b "WHA-"
     b "HOW DID YOU DRINK ALL THAT???"
     y "I'm just cool like that!"
+    b "WHAT ABOUT ME???"
+    show shock at upleft
+    y "I didn't even plan on giving you some to begin with!"
+    hide shock
+    b "Well you need to be more considerate!"
+    show angry at upleft
+    y "Well I'm sorry that it's MY drink!"
+    b "But I'm nice to you!"
+    y "SINCE WHEN WERE YOU NICE TO ME??? ALL YOU DO IS TRY TO ANNOY ME!"
+    b "That's a LIE!"
+    hide angry
+    show sad at upleft
+    y "You know what I don't care I'm going to sleep"
+    hide sad
+    b "WHAT ABOUT MY COKE?"
+    show happy at upleft
+    y "Goodnightttt!!!"
     return
 label monsdrink:
-    b "Test"
+    hide pchips
+    hide coke
+    hide lpop
+    hide monster
+    show monster:
+        pos (0.4, 0.25)
+    
+    b "..."
+    b "You genuinely want the monster...?"
+    b "You know it's an energy drink right?"
+    show shock at upleft
+    y "Oh um,"
+    hide shock
+    show happy at upleft
+    y "Well too bad I'm awake anyway"
+    hide happy
+    show shock at upleft
+    b "WEREN'T YOU TRYING TO SLEEP???"
+    hide shock
+    y "Well it's my sleep so I can do whatever I like"
+    b "You're really crazy"
+    show happy at upleft
+    y "Is that a good thing?"
+    hide happy
+    show shock at upleft
+    b "NO IT'S NOT"
+    hide shock
+    y "Well what are you gonna do about that?"
+    b "..."
+    b "Do whatever you want ruin your sleep if you really want to"
+    show happy at upleft
+    y "Hehehehe"
+    b "Are you actually planning on drinking it?"
+    hide happy
+    y "Yes"
+    y "Watch this,"
+    hide monster   
+    show happy at upleft
+    y "YUM!"
+    hide happy
+    b "Oh my days WHAT"
+    b "You drank it all?"
+    y "Yes"
+    y "It was delicious"
+    b "Wow"
+    show shock at upleft
+    b "I don't wanna hang out with a weirdo like you bye"
+    hide shock
+    y "Didn't you say I'm stuck with you?"
+    y "Hello?"
+    y "You actually left?"
+    y "Okay I'll see if I can sleep then."
     return
 label lolipop:
-    b "Test"
+    hide pchips
+    hide coke
+    hide monster
+    hide lpop
+    show lpop:
+        pos (0.4, 0.25)
+    b "A lolipop?"
+    b "Okay fair I could accept that"
+    b "pretty solid choice"
+    show happy at upleft
+    y "It tastes amazing"
+    y "Do you think I can crush it with my teeth?"
+    hide happy
+    show shock at upleft
+    b "WHAT"
+    b "Do NOT do that"
+    hide shock
+    b "Like actually don't I'm not kidding"
+    b "You treat your teeth like they're toys"
+    show shock at upleft
+    y "It's MY teeth"
+    y "You can't tell me what to do with them"
+    hide shock
+    b "Does that mean you should break them?"
+    y "Who said they're gonna break?"
+    show happy at upleft
+    y "Plus I have free will!"
+    hide happy
+    b "Do whatever you want bro"
+    y "Watch this!"
+    hide lpop
+    show happy at upleft
+    y "TADA!"
+    y "I ate it all"
+    hide happy
+    b "I'm not even surprised"
+    b "You even ate the stick, oh my days"
+    show shock at upleft
+    b "You weirdo I'm leaving"
+    y "WHAT NOOO"
+    y "WHERE DID YOU GO?"
+    hide shock
+    show sad at upleft
+    y "Awhhhh"
+    hide sad
+    y "I'll try to sleep then"
     return
     
 
