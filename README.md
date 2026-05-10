@@ -5,3 +5,6 @@ Engine: Renpy
 Story: You, the player are resting in your room. Earlier in the day, you drank coffee which results in you not being able to sleep. The game talks to you and offers you different snacks to eat, and you will have different conversations with it.
 Time spent: 4 hours (art and code)
 How to play:
+1. Open https://anya369.itch.io/late-night-snacks
+2. click "RUN"
+3. you can play the game!
